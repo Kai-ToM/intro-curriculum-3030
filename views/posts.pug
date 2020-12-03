@@ -1,4 +1,4 @@
-doctype html
+ doctype html
 html(lang="jp")
   head
     meta(charset="UTF-8")
@@ -25,8 +25,8 @@ html(lang="jp")
             if isPostedByAdmin
               span #{post.id} : 管理人 ★
             else
-              span #{post.id} : ID:#{post.trackingCookie}      
-        div.card-body
+              - var originalTrackingId = post.trackingCookie ? post.trackingCookie.sprit('_')[0] : ''
+              span #{post.id} : ID:#{originalTrackingId}
           p.card-text(style="white-space:pre; overflow:auto;") #{post.content}
         div.card-footer
             div 投稿日時: #{post.formattedCreatedAt}
